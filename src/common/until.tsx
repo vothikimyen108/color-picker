@@ -118,16 +118,12 @@ export const handleColorInput = (input: string): ColorResult => {
   return result;
 };
 
-export const processValue= (value: string, min: number, max: number): number => {
-    let parsedValue = parseInt(value, 10);
-
-    if (isNaN(parsedValue)) {
-        parsedValue = 0;
-    } else {
-        parsedValue = Math.max(min, Math.min(parsedValue, max));
-    }
-
-    return parsedValue;
+export const processValue= (value: number, max: number): number => {
+  let newValue = value
+  if(value > max)  {
+    newValue = max
+  }
+  return newValue;
 }
 
 export const processValueA= (value: number, min: number, max: number): number => {

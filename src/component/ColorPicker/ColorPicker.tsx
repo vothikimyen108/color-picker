@@ -118,6 +118,7 @@ const ColorPicker: React.FC = () => {
       r: pixelData[0],
       g: pixelData[1],
       b: pixelData[2],
+      a: 1
     };
 
     const hslColor: HslColor = RGBToHSL(rgbColor);

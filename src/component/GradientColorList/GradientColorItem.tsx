@@ -2,7 +2,12 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import "./GradientColorItem.css";
 import ColorInput from "../../common/input/ColorInput.tsx";
 import { useColorContext } from "../../ColorContext.tsx";
-import { HexToHSL, handleColorInput, hexToRGBA, processValue } from "../../common/until.tsx";
+import {
+  HexToHSL,
+  handleColorInput,
+  hexToRGBA,
+  processValue,
+} from "../../common/until.tsx";
 
 type GradientColorProps = {
   colorItem: ColorItem;
@@ -10,14 +15,17 @@ type GradientColorProps = {
 };
 
 const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
-  const { setColor } = useColorContext();
+  const { setColor ,gradient } = useColorContext();
   const [hexColor, setHexColor] = useState<string>(colorItem.color.hexColor);
-  const [stop, setStop] = useState<number>(colorItem.stop);
+  const [stop, setStop] = useState<number>(colorItem.stop || 0);
   const [error, setError] = useState<string | null>(null);
+  const [isBlur, setIsBlur] = useState(false);
+ 
 
   useEffect(() => {
     setHexColor(colorItem.color.hexColor);
-  }, [colorItem.color.hexColor]);
+    setStop(colorItem.stop)
+  }, [colorItem]);
 
   const handleHexInput = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.trim();
@@ -48,14 +56,27 @@ const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
     setHexColor(hexValue);
   };
 
-  const handleStopInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const parsedValue = processValue(event.target.value, 0, 100);
+  const handleStopInput = (event) => {
+    const parsedValue = processValue(event.target.value, 100);
     setStop(parsedValue);
   };
 
   const handleOnBlurStop = () => {
-    onChangeStop(stop, colorItem);
+    setIsBlur(true);
+    if (!stop) {
+      setStop(0);
+    }
   };
+
+  useEffect(() => {
+    if (isBlur && stop) {
+      onChangeStop(stop, colorItem);
+    }
+  }, [isBlur]);
+
+  useEffect(() => {
+    setStop(colorItem.stop);
+  }, [colorItem]);
 
   return (
     <div className={`color-item ${colorItem.selected ? "color-selected" : ""}`}>
@@ -77,11 +98,13 @@ const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
       </div>
       <div className="color-item-stop">
         <ColorInput
-          name="color-stop"
+          name="stop"
           value={stop}
+          type="number"
           onChange={handleStopInput}
           onBlur={handleOnBlurStop}
         />
+
       </div>
     </div>
   );

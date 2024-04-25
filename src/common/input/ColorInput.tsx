@@ -52,7 +52,6 @@ const ColorInput: FC<ColorInputProps> = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        defaultValue={defaultValue as string}
         className={classNameInput}
         min={min}
         disabled={isDisabled}

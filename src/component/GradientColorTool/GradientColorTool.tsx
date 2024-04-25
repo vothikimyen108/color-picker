@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GradientColorTool.css";
 import ColorInput from "../../common/input/ColorInput.tsx";
 import { useColorContext } from "../../ColorContext.tsx";
@@ -9,14 +9,26 @@ type GradientColorToolProps = {};
 const GradientColorTool = ({}: GradientColorToolProps) => {
   const { gradient, setGradient } = useColorContext();
   const [deg, setDeg] = useState<number>(gradient.deg);
+  const [isBlur, setIsBlur] = useState(false)
 
   const handleOnChange = (e) => {
-    const parsedValue = processValue(e.target.value, 0, 100);
+    const parsedValue = processValue(e.target.value, 360);
     setDeg(parsedValue);
+    setIsBlur(false)
   };
   const handleOnBlur = () => {
-    setGradient({ ...gradient, deg: deg });
+    if(!deg) {
+      setDeg(0)
+    }
+    setIsBlur(true)
   };
+
+  useEffect(()=> {
+    if(isBlur){
+      setGradient({ ...gradient, deg: deg });
+    }
+  }, [setDeg]);
+
   return (
     <>
       <h3>Gradient</h3>
@@ -48,7 +60,7 @@ const GradientColorTool = ({}: GradientColorToolProps) => {
               name="deg"
               value={deg}
               type="number"
-              label="deg"
+              label="deg (0-360)"
               onChange={handleOnChange}
               onBlur={handleOnBlur}
             />
