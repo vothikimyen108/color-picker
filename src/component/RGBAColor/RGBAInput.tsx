@@ -44,6 +44,8 @@ const RGBAInput = () => {
       },
     };
     setColor(updatedColor);
+    if(!colorValues.a)
+      handleColorChange('a', 1)
   };
 
   return (
@@ -90,6 +92,7 @@ const RGBAInput = () => {
           value={colorValues.a || ""}
           label="A"
           type="number"
+          defaultValue={1}
           min={0}
           max={1}
           onChange={(event) => handleInputChange("a", event.target.value)}

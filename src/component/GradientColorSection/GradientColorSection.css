@@ -1,6 +1,5 @@
 .gradient-color-section {
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
     justify-content: space-between;
 }
@@ -30,4 +29,20 @@
 
 .color-input-range {
     margin-top: 10px;
+}
+
+.gradient-color-container {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 2%;
+}
+
+.gradient-color-code {
+    background-color: rgb(22 26 66);
+    padding: 10px;
+    color: white;
+    margin-top: 10px;
+}
+
+.text-bg-code {
+    color: #00d4f0;
 }

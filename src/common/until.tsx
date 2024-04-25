@@ -56,7 +56,7 @@ export const RGBToHSL = (rgb: {
 export const HSLToRGB = (h: number, s: number, l: number): RgbColor => {
   const color = tinycolor({ h: h, s: s / 100, l: l / 100 });
   const rgb = color.toRgb();
-  return { r: rgb.r, g: rgb.g, b: rgb.b };
+  return { r: rgb.r, g: rgb.g, b: rgb.b, a: 1};
 };
 
 export const RGBtoXYZ = (
