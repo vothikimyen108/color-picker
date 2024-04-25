@@ -1,0 +1,7 @@
+.rgba-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px
+}
+

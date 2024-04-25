@@ -1,0 +1,80 @@
+.color-range input[type="range"] {
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    hsl(0, 100%, 50%),
+    hsl(60, 100%, 50%),
+    hsl(120, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(240, 100%, 50%),
+    hsl(300, 100%, 50%),
+    hsl(360, 100%, 50%)
+  );
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.color-range input[type="range"]:focus {
+  outline: none;
+}
+
+.color-range input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 20px;
+}
+
+.color-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: hsl(var(--hue), 100%, 50%);
+  cursor: pointer;
+  margin-top: -3px; /* Adjust vertical alignment */
+}
+
+/* Firefox */
+.color-range input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 20px;
+}
+
+.color-range input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: hsl(var(--hue), 100%, 50%);
+  cursor: pointer;
+}
+
+/* Edge */
+.color-range input[type="range"]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.color-range input[type="range"]::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: hsl(var(--hue), 100%, 50%);
+  cursor: pointer;
+}

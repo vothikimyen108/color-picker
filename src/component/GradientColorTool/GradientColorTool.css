@@ -1,0 +1,28 @@
+.btn-gradient {
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    color: #bbbfc5;
+    font-weight: 700;
+    border: 1px solid #bbbfc5;
+    border-radius: 10px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 20%;
+}
+
+.btn-gradient-selected {
+    color: 'white';
+    background-color: #222d59;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.deg-input {
+    width: 20%;
+}

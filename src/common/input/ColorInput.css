@@ -1,0 +1,29 @@
+.color-input {
+    width: 100%;
+}
+
+.color-input input {
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+    outline: none; 
+}
+
+.color-input input:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); 
+}
+
+.color-input-lable {
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 12px;
+    color: #BBBFC5;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    text-align: left;
+}

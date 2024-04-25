@@ -1,0 +1,14 @@
+.color-section {
+    display: flex;
+    height: 200px;
+    width: 100%;
+}
+
+.color-display {
+    flex-basis: 50%;
+    background-color: transparent; 
+}
+
+.color-picker-container {
+    flex-basis: 50%;
+}
