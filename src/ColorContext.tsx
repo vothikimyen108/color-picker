@@ -39,14 +39,16 @@ export const ColorProvider: React.FC<ColorProviderProps> = ({
   });
   const deg = `${gradient.deg}deg`;
   const [background, setBackground] = useState<string>(
-    `${gradient.isLinear ? "linear" : "radial"}-gradient(${gradient.isLinear ? deg : "circle"
+    `${gradient.isLinear ? "linear" : "radial"}-gradient(${
+      gradient.isLinear ? deg : "circle"
     }, ${listColorToText(listColor)})`
   );
 
   useEffect(() => {
     const deg = `${gradient.deg}deg`;
     setBackground(
-      `${gradient.isLinear ? "linear" : "radial"}-gradient(${gradient.isLinear ? deg : "circle"
+      `${gradient.isLinear ? "linear" : "radial"}-gradient(${
+        gradient.isLinear ? deg : "circle"
       }, ${listColorToText(listColor)})`
     );
   }, [listColor, gradient]);

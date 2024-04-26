@@ -10,7 +10,6 @@ const RGBAInput = () => {
   const [colorValues, setColorValues] = useState(color.rgbaColor);
   const [isBlur, setIsBlur] = useState(false);
 
-  // Update colorValues when color.rgbaColor changes
   useEffect(() => {
     setColorValues(color.rgbaColor);
   }, [color]);

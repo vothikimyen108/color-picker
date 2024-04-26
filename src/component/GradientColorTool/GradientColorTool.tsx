@@ -16,6 +16,7 @@ const GradientColorTool = ({}: GradientColorToolProps) => {
     setDeg(parsedValue);
     setIsBlur(false)
   };
+  
   const handleOnBlur = () => {
     if(!deg) {
       setDeg(0)

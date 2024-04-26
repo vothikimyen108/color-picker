@@ -71,9 +71,8 @@ const ColorPicker: React.FC = () => {
     const data = imageData.data;
     const targetRgb = color.rgbaColor;
 
-    let xW = -1; // Initialize to an invalid value if pixel not found
+    let xW = -1; 
     let yW = -1;
-    // Iterate over each pixel in the canvas
     for (let y = -1; y < canvas.height; y++) {
       for (let x = -1; x < canvas.width; x++) {
 
@@ -108,10 +107,6 @@ const ColorPicker: React.FC = () => {
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    // Check if the click is within the canvas bounds
-    // if (x < 0 || y < 0 || x >= canvas.width || y >= canvas.height) {
-    //   return; // Clicked outside canvas bounds
-    // }
 
     const pixelData = ctx.getImageData(x, y, 1, 1).data;
     const rgbColor: RgbColor = {

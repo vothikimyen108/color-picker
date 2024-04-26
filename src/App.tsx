@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { ColorProvider } from "./ColorContext.tsx";
 import GradientColorSection from "./component/GradientColorSection/GradientColorSection.tsx";
+import ThemeGradientColor from "./component/GradientColor/ThemeGradientColor.tsx";
 
 function App() {
   const color: Color = {
@@ -30,9 +31,7 @@ function App() {
     { color: color, id: 3, stop: 100, selected: false },
   ];
   return (
-    <ColorProvider singleColor={color}  dataList={colorListData}>
-      <GradientColorSection/>
-    </ColorProvider>
+    <ThemeGradientColor singleColor={color} dataList={colorListData}></ThemeGradientColor>
   );
 }
 

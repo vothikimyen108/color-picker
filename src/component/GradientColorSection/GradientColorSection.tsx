@@ -3,10 +3,10 @@ import GradientColorList from "../GradientColorList/GradientColorList.tsx";
 import { useColorContext } from "../../ColorContext.tsx";
 import "./GradientColorSection.css";
 import GradientColorTool from "../GradientColorTool/GradientColorTool.tsx";
-import ThemeColor from "../SingleColor/ThemeColor.tsx";
 import ColorInputRange from "../HSLColorRange/ColorInputRange.tsx";
 import HEXColorInput from "../HEXColor/HEXColorInput.tsx";
 import RGBAInput from "../RGBAColor/RGBAInput.tsx";
+import ThemeColor from "../GradientColor/ThemeColor.tsx"
 
 const GradientColorSection = () => {
   const { background } = useColorContext();

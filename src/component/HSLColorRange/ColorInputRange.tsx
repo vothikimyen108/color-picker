@@ -12,7 +12,6 @@ const ColorInputRange = () => {
   }, []);
   
   const handleInputChange = (e) => {
-    // Update CSS variable using JavaScript
     document.documentElement.style.setProperty("--hue", e.target.value);
     setColor({
       hexColor: HSLToHex(e.target.value, 100, 50),
