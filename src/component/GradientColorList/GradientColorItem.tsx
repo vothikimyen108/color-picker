@@ -24,8 +24,7 @@ const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
 
   useEffect(() => {
     setHexColor(colorItem.color.hexColor);
-    setStop(colorItem.stop)
-  }, [colorItem]);
+  }, [colorItem.color.hexColor]);
 
   const handleHexInput = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.trim();
@@ -59,6 +58,7 @@ const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
   const handleStopInput = (event) => {
     const parsedValue = processValue(event.target.value, 100);
     setStop(parsedValue);
+    setIsBlur(false)
   };
 
   const handleOnBlurStop = () => {
@@ -69,7 +69,7 @@ const GradientColorItem = ({ colorItem, onChangeStop }: GradientColorProps) => {
   };
 
   useEffect(() => {
-    if (isBlur && stop) {
+    if (isBlur) {
       onChangeStop(stop, colorItem);
     }
   }, [isBlur]);
